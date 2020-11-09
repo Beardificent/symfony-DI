@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Services;
+
+interface ITransform
+{
+
+public function transform(String $string):string;
+
+}
