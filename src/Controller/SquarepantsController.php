@@ -3,9 +3,10 @@
 namespace App\Controller;
 
 
-use App\Entity\Capitalize;
+use App\Services\Capitalize;
 use App\Entity\Logger;
 use App\Services\Master;
+use App\Services\SpacesToDashes;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,16 +15,15 @@ class SquarepantsController extends AbstractController
 {
     private string $message;
     private Master $master;
+
 //Stuck on using the master.
-    /**
-     * SquarepantsController constructor.
-     * @param string $message
-     * @param $master
-     */
-    public function __construct(string $message, Logger $logger, Capitalize $transform)
+
+    public function __construct(SpacesToDashes $transform)
     {
-        $this->message = $message;
-       $this->master = New Master($transform);
+        if($_POST['spaces-to-dashes']){
+            $this->master = New Master($transform);
+        }
+
     }
 
 
