@@ -12,7 +12,7 @@ class SpacesToDashes implements ITransform
     public function transform(string $string): string
     {
         // TODO: Implement transform() method.
-        //might need to say $string instead of $_POST['input']
-        str_replace(' ', '-', $_POST['input']);
+        str_replace(' ', '-', $string);
+       // str_replace(' ', '-', $_POST['input']);
     }
 }
